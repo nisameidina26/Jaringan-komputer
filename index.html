@@ -7,35 +7,47 @@
     <!-- Font & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <style>
-        /* --- VARIABLE SYSTEM & RESET --- */
     :root {
-    --primary: #4CA7A1;       /* Warna tombol & highlight */
-    --primary-hover: #A6D6C9; /* Warna tombol saat ditekan */
-    --secondary: #CEFEF1;     /* Warna aksen terang */
-    --bg-dark: #001722;       /* Latar belakang utama (Gelap/Navy Teal) */
-    --card-bg: #0D2B36;       /* Latar belakang kartu/box (Dark Teal) */
-    --text-main: #FFFFFF;     /* Warna teks judul/utama (Putih Jelas) */
-    --text-muted: #A6D6C9;    /* Warna teks deskripsi (Soft Mint) */
-    --border-color: #1F5F63;  /* Warna garis tepi box */
-        }
-       
-    body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-}
+        --primary: #4CA7A1;       /* Warna tombol & highlight */
+        --primary-hover: #A6D6C9; /* Warna tombol saat ditekan */
+        --secondary: #CEFEF1;     /* Warna aksen terang */
+        --bg-dark: #001722 !important;       /* Latar belakang utama (Navy Teal Gelap) */
+        --card-bg: #0D2B36 !important;       /* Latar belakang kartu (Dark Teal) */
+        --text-main: #FFFFFF !important;     /* Warna teks utama (Putih) */
+        --text-muted: #A6D6C9 !important;    /* Warna deskripsi (Mint Soft) */
+        --border-color: #1F5F63;  /* Garis tepi box */
+    }
 
-.card, .step-card, .info-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 20px;
-}
-        
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #001722 !important;
+        color: #FFFFFF !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.6;
+    }
+
+    .card, .step-card, .info-card, .ppt-wrapper, .download-action, .wire-color-box {
+        background-color: #0D2B36 !important;
+        border: 1px solid #1F5F63 !important;
+        color: #FFFFFF !important;
+    }
+
+    h1, h2, h3, h4, h5, h6, strong {
+        color: #CEFEF1 !important;
+    }
+
+    p, span, li, div {
+        color: #A6D6C9;
+    }
+    </style>
+    
         * {
             margin: 0;
             padding: 0;
