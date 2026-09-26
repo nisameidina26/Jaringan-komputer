@@ -10,16 +10,31 @@
 
     <style>
         /* --- VARIABLE SYSTEM & RESET --- */
-        :root {
-    --primary: #4CA7A1;       /* Teal - Warna aksen/tombol utama */
-    --primary-hover: #A6D6C9; /* Soft Mint - Warna tombol saat di-hover */
-    --secondary: #CEFEF1;     /* Light Aqua - Warna sorotan/teks terang */
-    --bg-dark: #001722;       /* Deep Navy Teal - Latar belakang utama web */
-    --card-bg: #0D2B36;       /* Dark Teal - Warna latar belakang kartu/box */
-    --text-main: #CEFEF1;     /* Light Aqua - Warna teks utama */
-    --text-muted: #A6D6C9;    /* Muted Mint - Warna deskripsi/teks sekunder */
-    --border-color: #1F5F63;  /* Medium Teal - Warna garis tepi/border */
+    :root {
+    --primary: #4CA7A1;       /* Warna tombol & highlight */
+    --primary-hover: #A6D6C9; /* Warna tombol saat ditekan */
+    --secondary: #CEFEF1;     /* Warna aksen terang */
+    --bg-dark: #001722;       /* Latar belakang utama (Gelap/Navy Teal) */
+    --card-bg: #0D2B36;       /* Latar belakang kartu/box (Dark Teal) */
+    --text-main: #FFFFFF;     /* Warna teks judul/utama (Putih Jelas) */
+    --text-muted: #A6D6C9;    /* Warna teks deskripsi (Soft Mint) */
+    --border-color: #1F5F63;  /* Warna garis tepi box */
         }
+       
+    body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.card, .step-card, .info-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+}
         
         
 
