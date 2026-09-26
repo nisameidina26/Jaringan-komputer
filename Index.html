@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum Jaringan Komputer - Nisa Meidina</title>
+    <!-- Font & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLE SYSTEM & RESET --- */
+        :root {
+            --bg-main: #0B0F19;
+            --bg-card: #151D2A;
+            --bg-card-hover: #1E293B;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --primary: #7C3AED;
+            --primary-glow: rgba(124, 58, 237, 0.4);
+            --secondary: #06B6D4;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent-green: #10B981;
+            --accent-orange: #F59E0B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND DECORATION --- */
+        .bg-glow {
+            position: fixed;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(80px);
+        }
+
+        .bg-glow-2 {
+            position: fixed;
+            bottom: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(80px);
+        }
+
+        /* --- CONTAINER & LAYOUT --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* --- HERO SECTION / HEADER IDENTITY --- */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .badge-course {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(124, 58, 237, 0.15);
+            border: 1px solid var(--primary);
+            color: #C4B5FD;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #FFF 0%, #94A3B8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 40px;
+            font-size: 1.05rem;
+        }
+
+        /* CARD IDENTITAS STUDENT & DOSEN */
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .id-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .id-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .id-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .id-details h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .id-details h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-top: 2px;
+        }
+
+        .id-details p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* --- SECTION COMMONS --- */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+
+        /* --- EQUIPMENT SECTION --- */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--secondary);
+        }
+
+        .tool-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .tool-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .tool-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* --- TUTORIAL / STEPS SECTION --- */
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+        }
+
+        .step-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .wire-color-box {
+            background: #0D1117;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .wire-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .wire-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* --- PPT PREVIEW & DOWNLOAD --- */
+        .ppt-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            border: 1px solid var(--border-color);
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .download-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--text-main);
+        }
+
+        /* --- MEDIA UPLOAD SECTION (3 SLOTS) --- */
+        .upload-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .upload-card {
+            background: var(--bg-card);
+            border: 2px dashed var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .upload-card:hover {
+            border-color: var(--secondary);
+            background: var(--bg-card-hover);
+        }
+
+        .upload-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .upload-card h4 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .upload-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .preview-box {
+            margin-top: 16px;
+            width: 100%;
+            display: none;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .preview-box video {
+            width: 100%;
+            max-height: 180px;
+        }
+
+        .preview-box .doc-preview {
+            padding: 12px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-green);
+            font-size: 0.85rem;
+            border-radius: 6px;
+            word-break: break-all;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .iframe-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Elements -->
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-network-wired"></i>
+                <span>NetLab.</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#alat">Peralatan</a></li>
+                <li><a href="#tutorial">Panduan</a></li>
+                <li><a href="#ppt">Materi PPT</a></li>
+                <li><a href="#upload">Upload Tugas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="container">
+            <div class="badge-course">
+                <i class="fa-solid fa-graduation-cap"></i> Tugas Mata Kuliah: Jaringan Komputer
+            </div>
+            <h1>Pengkabelan LAN UTP &<br>Sistem File Sharing Peer-to-Peer</h1>
+            <p>Panduan teknis perakitan kabel UTP dengan konektor RJ-45, pengujian konektivitas LAN Tester, serta konfigurasi Direct Sharing Data antar 2 Laptop.</p>
+
+            <!-- IDENTITAS MAHASISWA & DOSEN -->
+            <div class="identity-grid">
+                <div class="id-card">
+                    <div class="id-icon">
+                        <i class="fa-solid fa-user-gear"></i>
+                    </div>
+                    <div class="id-details">
+                        <h4>Penyusun / Mahasiswa</h4>
+                        <h3>Nisa Meidina</h3>
+                        <p>NIM: 062640723208 | Kelas 1-TIA</p>
+                    </div>
+                </div>
+
+                <div class="id-card">
+                    <div class="id-icon">
+                        <i class="fa-solid fa-university"></i>
+                    </div>
+                    <div class="id-details">
+                        <h4>Program Studi & Jurusan</h4>
+                        <h3>D4 TIMD</h3>
+                        <p>Jurusan Teknik Komputer</p>
+                    </div>
+                </div>
+
+                <div class="id-card">
+                    <div class="id-icon">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div class="id-details">
+                        <h4>Dosen Pengampu</h4>
+                        <h3>Dr. Ali Firdaus, S.Kom., M.Kom.</h3>
+                        <p>Dosen Jaringan Komputer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container"><hr style="border: 0; border-top: 1px solid var(--border-color);"></div>
+
+    <!-- SECTION 1: PERALATAN -->
+    <section id="alat">
+        <div class="container">
+            <div class="section-title">
+                <h2>Peralatan & Komponen Praktikum</h2>
+                <p>Komponen utama yang digunakan dalam proses perakitan kabel dan pengujian jaringan.</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <i class="fa-solid fa-ethernet"></i>
+                    <h3>Kabel UTP</h3>
+                    <p>Unshielded Twisted Pair (Cat5e/Cat6) sebagai media transmisi fisik data.</p>
+                </div>
+                <div class="tool-card">
+                    <i class="fa-solid fa-plug"></i>
+                    <h3>Konektor RJ-45</h3>
+                    <p>Konektor standar modular untuk terminasi ujung kabel UTP.</p>
+                </div>
+                <div class="tool-card">
+                    <i class="fa-solid fa-scissors"></i>
+                    <h3>Tang Crimping</h3>
+                    <p>Alat pemotong, pengupas kabel, dan pengunci pin konektor RJ-45.</p>
+                </div>
+                <div class="tool-card">
+                    <i class="fa-solid fa-microchip"></i>
+                    <h3>LAN Tester</h3>
+                    <p>Alat penguji kontinuitas sinyal transmisi pada pin kabel LAN.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: PANDUAN LANGKAH KERJA -->
+    <section id="tutorial">
+        <div class="container">
+            <div class="section-title">
+                <h2>Langkah Kerja & Konfigurasi</h2>
+                <p>Prosedur teknis perakitan hingga proses transfer data antar perangkat.</p>
+            </div>
+
+            <!-- STEP 1 -->
+            <div class="step-card">
+                <span class="step-number">Langkah 01</span>
+                <h3>Merangkai Kabel UTP dengan RJ-45</h3>
+                <p>Kupas jaket luar kabel UTP sepanjang 2 cm menggunakan tang crimping. Luruskan dan urutkan kabel sesuai standar internasional. Untuk menghubungkan 2 laptop secara langsung, gunakan standar <strong>Cross-over</strong> (ujung A: T568A, ujung B: T568B) atau susunan <strong>Straight-through</strong> (T568B di kedua ujung) jika perangkat laptop sudah mendukung fitur Auto-MDI/MDIX modern.</p>
+
+                <div class="wire-color-box">
+                    <strong>Urutan Standar T568B (Straight-Through):</strong>
+                    <div class="wire-list">
+                        <div class="wire-item"><span class="dot" style="background:#ff9900;"></span>1. Putih-Orange</div>
+                        <div class="wire-item"><span class="dot" style="background:#ff6600;"></span>2. Orange</div>
+                        <div class="wire-item"><span class="dot" style="background:#99ff99;"></span>3. Putih-Hijau</div>
+                        <div class="wire-item"><span class="dot" style="background:#0066ff;"></span>4. Biru</div>
+                        <div class="wire-item"><span class="dot" style="background:#66ccff;"></span>5. Putih-Biru</div>
+                        <div class="wire-item"><span class="dot" style="background:#009933;"></span>6. Hijau</div>
+                        <div class="wire-item"><span class="dot" style="background:#cc9966;"></span>7. Putih-Cokelat</div>
+                        <div class="wire-item"><span class="dot" style="background:#663300;"></span>8. Cokelat</div>
+                    </div>
+                </div>
+                <p style="margin-top: 16px; font-size: 0.9rem;">Setelah urutan rapi, potong rata ujung kabel, masukkan ke dalam konektor RJ-45 hingga menyentuh ujung, lalu jepit (crimp) dengan kuat menggunakan Tang Crimping.</p>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="step-card">
+                <span class="step-number">Langkah 02</span>
+                <h3>Pengujian Menggunakan LAN Tester</h3>
+                <p>Masukkan kedua ujung kabel RJ-45 ke port Master dan Remote pada LAN Tester. Nyalakan alat.</p>
+                <p style="margin-top: 8px; color: var(--text-muted); font-size: 0.9rem;">
+                    <i class="fa-solid fa-circle-info" style="color:var(--secondary)"></i> Indikator Berhasil (Straight): Lampu indikator nomor 1 hingga 8 menyala secara berurutan bersamaan di kedua sisi.
+                </p>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="step-card">
+                <span class="step-number">Langkah 03</span>
+ 
