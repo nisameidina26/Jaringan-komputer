@@ -601,28 +601,47 @@
                 <p>Prosedur teknis perakitan hingga proses transfer data antar perangkat.</p>
             </div>
 
-            <!-- STEP 1 -->
-            <div class="step-card">
-                <span class="step-number">Langkah 01</span>
-                <h3>Merangkai Kabel UTP dengan RJ-45</h3>
-                <p>Kupas jaket luar kabel UTP sepanjang 2 cm menggunakan tang crimping. Luruskan dan urutkan kabel sesuai standar internasional. Untuk menghubungkan 2 laptop secara langsung, gunakan standar <strong>Cross-over</strong> (ujung A: T568A, ujung B: T568B) atau susunan <strong>Straight-through</strong> (T568B di kedua ujung) jika perangkat laptop sudah mendukung fitur Auto-MDI/MDIX modern.</p>
-
-                <div class="wire-color-box">
-                    <strong>Urutan Standar T568B (Straight-Through):</strong>
-                    <div class="wire-list">
-                        <div class="wire-item"><span class="dot" style="background:#ff9900;"></span>1. Putih-Orange</div>
-                        <div class="wire-item"><span class="dot" style="background:#ff6600;"></span>2. Orange</div>
-                        <div class="wire-item"><span class="dot" style="background:#99ff99;"></span>3. Putih-Hijau</div>
-                        <div class="wire-item"><span class="dot" style="background:#0066ff;"></span>4. Biru</div>
-                        <div class="wire-item"><span class="dot" style="background:#66ccff;"></span>5. Putih-Biru</div>
-                        <div class="wire-item"><span class="dot" style="background:#009933;"></span>6. Hijau</div>
-                        <div class="wire-item"><span class="dot" style="background:#cc9966;"></span>7. Putih-Cokelat</div>
-                        <div class="wire-item"><span class="dot" style="background:#663300;"></span>8. Cokelat</div>
-                    </div>
-                </div>
-                <p style="margin-top: 16px; font-size: 0.9rem;">Setelah urutan rapi, potong rata ujung kabel, masukkan ke dalam konektor RJ-45 hingga menyentuh ujung, lalu jepit (crimp) dengan kuat menggunakan Tang Crimping.</p>
+<!-- STEP 1: CROSS-OVER -->
+<div class="step-card">
+    <span class="step-number">Langkah 01</span>
+    <h3>Merangkai Kabel UTP (Standar Cross-Over)</h3>
+    <p>Kupas jaket luar kabel UTP sepanjang 2 cm. Untuk menghubungkan 2 laptop secara langsung (Peer-to-Peer), susun pin kabel dengan standar <strong>Cross-Over</strong>:</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 12px;">
+        <!-- UJUNG A (T568A) -->
+        <div class="wire-color-box">
+            <strong style="color: var(--primary);">Ujung A (Standar T568A):</strong>
+            <div class="wire-list" style="margin-top: 8px;">
+                <div class="wire-item"><span class="dot" style="background:#ccffcc;"></span>1. Putih-Hijau</div>
+                <div class="wire-item"><span class="dot" style="background:#009933;"></span>2. Hijau</div>
+                <div class="wire-item"><span class="dot" style="background:#ff9900;"></span>3. Putih-Orange</div>
+                <div class="wire-item"><span class="dot" style="background:#0066ff;"></span>4. Biru</div>
+                <div class="wire-item"><span class="dot" style="background:#ccffff;"></span>5. Putih-Biru</div>
+                <div class="wire-item"><span class="dot" style="background:#ff6600;"></span>6. Orange</div>
+                <div class="wire-item"><span class="dot" style="background:#cc9966;"></span>7. Putih-Cokelat</div>
+                <div class="wire-item"><span class="dot" style="background:#663300;"></span>8. Cokelat</div>
             </div>
+        </div>
 
+        <!-- UJUNG B (T568B) -->
+        <div class="wire-color-box">
+            <strong style="color: var(--secondary);">Ujung B (Standar T568B):</strong>
+            <div class="wire-list" style="margin-top: 8px;">
+                <div class="wire-item"><span class="dot" style="background:#ff9900;"></span>1. Putih-Orange</div>
+                <div class="wire-item"><span class="dot" style="background:#ff6600;"></span>2. Orange</div>
+                <div class="wire-item"><span class="dot" style="background:#ccffcc;"></span>3. Putih-Hijau</div>
+                <div class="wire-item"><span class="dot" style="background:#0066ff;"></span>4. Biru</div>
+                <div class="wire-item"><span class="dot" style="background:#ccffff;"></span>5. Putih-Biru</div>
+                <div class="wire-item"><span class="dot" style="background:#009933;"></span>6. Hijau</div>
+                <div class="wire-item"><span class="dot" style="background:#cc9966;"></span>7. Putih-Cokelat</div>
+                <div class="wire-item"><span class="dot" style="background:#663300;"></span>8. Cokelat</div>
+            </div>
+        </div>
+    </div>
+
+    <p style="margin-top: 16px; font-size: 0.9rem;">Setelah urutan rapi di kedua ujung kabel, potong rata lalu jepit (*crimp*) menggunakan Tang Crimping ke dalam konektor RJ-45.</p>
+</div>
+            
             <!-- STEP 2 -->
             <div class="step-card">
                 <span class="step-number">Langkah 02</span>
@@ -659,33 +678,33 @@
             </div>
         </div>
     </section>
-
+    
     <!-- SECTION 3: PPT PREVIEW & DOWNLOAD -->
     <section id="ppt">
         <div class="container">
             <div class="section-title">
-                <h2>Materi Presentasi (PPT)</h2>
-                <p>Preview dokumentasi modul dan unduh materi lengkap praktikum.</p>
+                <h2>Materi Presentasi (Canva)</h2>
+                <p>Preview dokumentasi modul dan lihat materi lengkap praktikum via Canva.</p>
             </div>
 
             <div class="ppt-wrapper">
                 <div class="iframe-container">
-                    <iframe src="https://docs.google.com/gview?url=https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf&embedded=true"></iframe>
+                    <iframe src="https://canva.link/dxeim7k9avlbcp8" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
                 </div>
 
                 <div class="download-action">
                     <div>
-                        <h4 style="font-size:1.1rem;"><i class="fa-solid fa-file-powerpoint" style="color: #EA580C;"></i> Slide_Praktikum_Jaringan_NisaMeidina.pptx</h4>
-                        <p style="font-size:0.85rem; color: var(--text-muted);">Ukuran File: 4.5 MB | Format: Microsoft PowerPoint / PDF</p>
+                        <h4 style="font-size:1.1rem;"><i class="fa-solid fa-file-powerpoint" style="color: #00C4CC;"></i> Slide_Praktikum_Jaringan_NisaMeidina</h4>
+                        <p style="font-size:0.85rem; color: var(--text-muted);">Format: Canva Interactive Presentation</p>
                     </div>
-                    <a href="#" download class="btn">
-                        <i class="fa-solid fa-download"></i> Download PPT
+                    <a href="https://canva.link/dxeim7k9avlbcp8" target="_blank" class="btn">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Slide Canva
                     </a>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- SECTION 4: AREA UPLOAD (2 VIDEO & 1 PPT) -->
     <section id="upload">
         <div class="container">
