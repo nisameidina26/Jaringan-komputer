@@ -8,46 +8,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <style>
-    :root {
-        --primary: #4CA7A1;       /* Warna tombol & highlight */
-        --primary-hover: #A6D6C9; /* Warna tombol saat ditekan */
-        --secondary: #CEFEF1;     /* Warna aksen terang */
-        --bg-dark: #001722 !important;       /* Latar belakang utama (Navy Teal Gelap) */
-        --card-bg: #0D2B36 !important;       /* Latar belakang kartu (Dark Teal) */
-        --text-main: #FFFFFF !important;     /* Warna teks utama (Putih) */
-        --text-muted: #A6D6C9 !important;    /* Warna deskripsi (Mint Soft) */
-        --border-color: #1F5F63;  /* Garis tepi box */
-    }
+      <style>
+        /* --- VARIABLE SYSTEM & RESET --- */
+        :root {
+            --bg-main: #0B0F19;
+            --bg-card: #151D2A;
+            --bg-card-hover: #1E293B;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --primary: #7C3AED;
+            --primary-glow: rgba(124, 58, 237, 0.4);
+            --secondary: #06B6D4;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent-green: #10B981;
+            --accent-orange: #F59E0B;
+        }
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        background-color: #001722 !important;
-        color: #FFFFFF !important;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        line-height: 1.6;
-    }
-
-    .card, .step-card, .info-card, .ppt-wrapper, .download-action, .wire-color-box {
-        background-color: #0D2B36 !important;
-        border: 1px solid #1F5F63 !important;
-        color: #FFFFFF !important;
-    }
-
-    h1, h2, h3, h4, h5, h6, strong {
-        color: #CEFEF1 !important;
-    }
-
-    p, span, li, div {
-        color: #A6D6C9;
-    }
-    </style>
-    
         * {
             margin: 0;
             padding: 0;
@@ -62,7 +38,7 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-
+    
         /* --- BACKGROUND DECORATION --- */
         .bg-glow {
             position: fixed;
