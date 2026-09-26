@@ -721,64 +721,88 @@
         </div>
     </section>
     
-    <!-- SECTION 4: AREA UPLOAD (2 VIDEO & 1 PPT) -->
-    <section id="upload">
+    <!-- SECTION 4: TAMPILAN MEDIA TERUNGGAH (SHOWCASE PERMANEN) -->
+    <section id="upload" style="padding: 60px 0;">
         <div class="container">
-            <div class="section-title">
-                <h2>Portal Pengumpulan / Upload Media</h2>
-                <p>Area unggah berkas tugas praktikum (2 Video demonstrasi & 1 File PPT).</p>
+            <div class="section-title" style="text-align: center; margin-bottom: 40px;">
+                <h2 style="color: var(--secondary); font-size: 1.8rem; margin-bottom: 10px;">
+                    <i class="fa-solid fa-photo-film"></i> Hasil Dokumentasi & Media Praktikum
+                </h2>
+                <p style="color: var(--text-muted); max-width: 680px; margin: 0 auto;">
+                    Tampilan permanen berkas video demonstrasi praktikum dan salinan materi presentasi tugas Nisa Meidina.
+                </p>
             </div>
 
-            <div class="upload-grid">
+            <!-- GRID MEDIA SHOWCASE -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 30px;">
                 
-                <!-- SLOT UPLOAD 1: VIDEO MERANGKAI KABEL -->
-                <div class="upload-card">
-                    <i class="fa-solid fa-file-video"></i>
-                    <h4>Video 1: Merangkai Kabel LAN</h4>
-                    <p>Format MP4/WebM (Maks. 50MB)</p>
-                    <label for="video1-input" class="btn btn-outline">
-                        <i class="fa-solid fa-upload"></i> Pilih Video 1
-                    </label>
-                    <input type="file" id="video1-input" class="file-input" accept="video/*" onchange="previewMedia(this, 'prev-video1', 'video')">
-                    
-                    <div id="prev-video1" class="preview-box">
-                        <video controls id="player-video1"></video>
+                <!-- KARTU VIDEO 1 -->
+                <div class="card" style="background-color: var(--card-bg) !important; border: 1px solid var(--border-color) !important; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                            <i class="fa-solid fa-file-video" style="font-size: 1.5rem; color: var(--primary);"></i>
+                            <div>
+                                <h3 style="font-size: 1.1rem; color: var(--secondary); margin: 0;">Video 1: Merangkai Kabel LAN</h3>
+                                <small style="color: var(--text-muted);">Format: MP4 Video (Demonstrasi Crimping)</small>
+                            </div>
+                        </div>
+                        
+                        <!-- PEMUTAR VIDEO 1 -->
+                        <div style="width: 100%; border-radius: 8px; overflow: hidden; background: #000; margin-bottom: 15px;">
+                            <video controls style="width: 100%; max-height: 220px; display: block;">
+                                <source src="video1-merangkai-kabel.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video HTML5.
+                            </video>
+                        </div>
                     </div>
+                    <a href="video1-merangkai-kabel.mp4" target="_blank" class="btn" style="text-align: center; display: block; text-decoration: none; padding: 8px 12px; background: rgba(76, 167, 161, 0.2); border: 1px solid var(--primary); color: var(--secondary); border-radius: 6px; font-size: 0.85rem;">
+                        <i class="fa-solid fa-download"></i> Unduh / Buka Video 1
+                    </a>
                 </div>
 
-                <!-- SLOT UPLOAD 2: VIDEO SHARING FILE -->
-                <div class="upload-card">
-                    <i class="fa-solid fa-file-video"></i>
-                    <h4>Video 2: Cara Sharing File</h4>
-                    <p>Format MP4/WebM (Maks. 50MB)</p>
-                    <label for="video2-input" class="btn btn-outline">
-                        <i class="fa-solid fa-upload"></i> Pilih Video 2
-                    </label>
-                    <input type="file" id="video2-input" class="file-input" accept="video/*" onchange="previewMedia(this, 'prev-video2', 'video')">
-                    
-                    <div id="prev-video2" class="preview-box">
-                        <video controls id="player-video2"></video>
+                <!-- KARTU VIDEO 2 -->
+                <div class="card" style="background-color: var(--card-bg) !important; border: 1px solid var(--border-color) !important; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                            <i class="fa-solid fa-file-video" style="font-size: 1.5rem; color: var(--primary);"></i>
+                            <div>
+                                <h3 style="font-size: 1.1rem; color: var(--secondary); margin: 0;">Video 2: Cara Sharing File</h3>
+                                <small style="color: var(--text-muted);">Format: MP4 Video (Konfigurasi IP & Folder)</small>
+                            </div>
+                        </div>
+                        
+                        <!-- PEMUTAR VIDEO 2 -->
+                        <div style="width: 100%; border-radius: 8px; overflow: hidden; background: #000; margin-bottom: 15px;">
+                            <video controls style="width: 100%; max-height: 220px; display: block;">
+                                <source src="video2-sharing-file.mp4" type="video/mp4">
+                                Browser Anda tidak mendukung pemutar video HTML5.
+                            </video>
+                        </div>
                     </div>
-                </div>
-
-                <!-- SLOT UPLOAD 3: UPLOAD PPT -->
-                <div class="upload-card">
-                    <i class="fa-solid fa-file-powerpoint"></i>
-                    <h4>Upload File PPT Tugas</h4>
-                    <p>Format PPTX / PDF (Maks. 20MB)</p>
-                    <label for="ppt-input" class="btn btn-outline">
-                        <i class="fa-solid fa-upload"></i> Pilih File PPT
-                    </label>
-                    <input type="file" id="ppt-input" class="file-input" accept=".ppt, .pptx, .pdf" onchange="previewMedia(this, 'prev-ppt', 'doc')">
-                    
-                    <div id="prev-ppt" class="preview-box">
-                        <div class="doc-preview" id="doc-name">File terpilih</div>
-                    </div>
+                    <a href="video2-sharing-file.mp4" target="_blank" class="btn" style="text-align: center; display: block; text-decoration: none; padding: 8px 12px; background: rgba(76, 167, 161, 0.2); border: 1px solid var(--primary); color: var(--secondary); border-radius: 6px; font-size: 0.85rem;">
+                        <i class="fa-solid fa-download"></i> Unduh / Buka Video 2
+                    </a>
                 </div>
 
             </div>
+
+            <!-- KARTU SUMMARY PPT / CANVA DOKUMENTASI -->
+            <div class="card" style="background-color: var(--card-bg) !important; border: 1px solid var(--border-color) !important; border-radius: 12px; padding: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <i class="fa-solid fa-file-powerpoint" style="font-size: 2rem; color: var(--primary);"></i>
+                    <div>
+                        <h4 style="color: var(--secondary); margin: 0; font-size: 1.1rem;">Berkas PPT Tugas Praktikum Jaringan</h4>
+                        <p style="color: var(--text-muted); margin: 0; font-size: 0.85rem;">Status: Terverifikasi &amp; Terhubung langsung via Canva Interactive</p>
+                    </div>
+                </div>
+                <a href="https://www.canva.com/design/DAHWRo0b0PI/eB_5AgK_zs0od-0LBrd9ig/view" target="_blank" style="padding: 10px 18px; background-color: var(--primary); color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat Presentasi Utuh
+                </a>
+            </div>
+
         </div>
     </section>
+    
 
     <!-- FOOTER -->
     <footer>
