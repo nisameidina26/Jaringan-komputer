@@ -633,7 +633,144 @@
                 </p>
             </div>
 
-            <!-- STEP 3 -->
+                        <!-- STEP 3 -->
             <div class="step-card">
                 <span class="step-number">Langkah 03</span>
- 
+                <h3>Menghubungkan & Konfigurasi IP 2 Laptop</h3>
+                <p>Tancapkan masing-masing ujung kabel ke port RJ-45 Laptop A dan Laptop B. Lakukan setting IP Static pada satu segmen jaringan yang sama:</p>
+                <div class="wire-color-box">
+                    <p><strong>Laptop A:</strong> IP Address: <code>192.168.1.1</code> | Subnet Mask: <code>255.255.255.0</code></p>
+                    <p><strong>Laptop B:</strong> IP Address: <code>192.168.1.2</code> | Subnet Mask: <code>255.255.255.0</code></p>
+                </div>
+                <p style="margin-top: 12px; font-size: 0.9rem;">Buka Command Prompt (CMD) di Laptop A dan ketik <code>ping 192.168.1.2</code>. Jika muncul balasan <em>Reply from...</em>, koneksi fisik dan logis antar laptop telah berhasil terhubung!</p>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="step-card">
+                <span class="step-number">Langkah 04</span>
+                <h3>Cara Sharing File Melalui Kabel LAN</h3>
+                <ol style="margin-left: 20px; font-size: 0.95rem; color: var(--text-muted);">
+                    <li style="margin-bottom: 8px;">Masuk ke <strong>Control Panel > Network and Sharing Center > Advanced sharing settings</strong>. Matikan <em>Password protected sharing</em>.</li>
+                    <li style="margin-bottom: 8px;">Pilih Folder yang ingin dibagikan, klik kanan > <strong>Properties</strong>.</li>
+                    <li style="margin-bottom: 8px;">Pilih tab <strong>Sharing</strong> > Klik tombol <strong>Share...</strong></li>
+                    <li style="margin-bottom: 8px;">Pilih opsi <strong>Everyone</strong>, klik <strong>Add</strong>, atur Permission Level ke <em>Read/Write</em>, lalu klik <strong>Share</strong>.</li>
+                    <li>Di laptop penerima, buka File Explorer, ketik alamat IP laptop pengirim pada address bar (contoh: <code>\\192.168.1.1</code>) untuk mengakses file secara langsung.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: PPT PREVIEW & DOWNLOAD -->
+    <section id="ppt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Materi Presentasi (PPT)</h2>
+                <p>Preview dokumentasi modul dan unduh materi lengkap praktikum.</p>
+            </div>
+
+            <div class="ppt-wrapper">
+                <div class="iframe-container">
+                    <iframe src="https://docs.google.com/gview?url=https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf&embedded=true"></iframe>
+                </div>
+
+                <div class="download-action">
+                    <div>
+                        <h4 style="font-size:1.1rem;"><i class="fa-solid fa-file-powerpoint" style="color: #EA580C;"></i> Slide_Praktikum_Jaringan_NisaMeidina.pptx</h4>
+                        <p style="font-size:0.85rem; color: var(--text-muted);">Ukuran File: 4.5 MB | Format: Microsoft PowerPoint / PDF</p>
+                    </div>
+                    <a href="#" download class="btn">
+                        <i class="fa-solid fa-download"></i> Download PPT
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: AREA UPLOAD (2 VIDEO & 1 PPT) -->
+    <section id="upload">
+        <div class="container">
+            <div class="section-title">
+                <h2>Portal Pengumpulan / Upload Media</h2>
+                <p>Area unggah berkas tugas praktikum (2 Video demonstrasi & 1 File PPT).</p>
+            </div>
+
+            <div class="upload-grid">
+                
+                <!-- SLOT UPLOAD 1: VIDEO MERANGKAI KABEL -->
+                <div class="upload-card">
+                    <i class="fa-solid fa-file-video"></i>
+                    <h4>Video 1: Merangkai Kabel LAN</h4>
+                    <p>Format MP4/WebM (Maks. 50MB)</p>
+                    <label for="video1-input" class="btn btn-outline">
+                        <i class="fa-solid fa-upload"></i> Pilih Video 1
+                    </label>
+                    <input type="file" id="video1-input" class="file-input" accept="video/*" onchange="previewMedia(this, 'prev-video1', 'video')">
+                    
+                    <div id="prev-video1" class="preview-box">
+                        <video controls id="player-video1"></video>
+                    </div>
+                </div>
+
+                <!-- SLOT UPLOAD 2: VIDEO SHARING FILE -->
+                <div class="upload-card">
+                    <i class="fa-solid fa-file-video"></i>
+                    <h4>Video 2: Cara Sharing File</h4>
+                    <p>Format MP4/WebM (Maks. 50MB)</p>
+                    <label for="video2-input" class="btn btn-outline">
+                        <i class="fa-solid fa-upload"></i> Pilih Video 2
+                    </label>
+                    <input type="file" id="video2-input" class="file-input" accept="video/*" onchange="previewMedia(this, 'prev-video2', 'video')">
+                    
+                    <div id="prev-video2" class="preview-box">
+                        <video controls id="player-video2"></video>
+                    </div>
+                </div>
+
+                <!-- SLOT UPLOAD 3: UPLOAD PPT -->
+                <div class="upload-card">
+                    <i class="fa-solid fa-file-powerpoint"></i>
+                    <h4>Upload File PPT Tugas</h4>
+                    <p>Format PPTX / PDF (Maks. 20MB)</p>
+                    <label for="ppt-input" class="btn btn-outline">
+                        <i class="fa-solid fa-upload"></i> Pilih File PPT
+                    </label>
+                    <input type="file" id="ppt-input" class="file-input" accept=".ppt, .pptx, .pdf" onchange="previewMedia(this, 'prev-ppt', 'doc')">
+                    
+                    <div id="prev-ppt" class="preview-box">
+                        <div class="doc-preview" id="doc-name">File terpilih</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Nisa Meidina (062640723208) - D4 Teknologi Informatika Multimedia Digital</p>
+            <p style="margin-top: 4px; color: rgba(255, 255, 255, 0.3);">Politeknik Negeri Sriwijaya | Dosen Pengampu: Dr. Ali Firdaus. S.Kom., M.Kom.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT UNTUK PREVIEW MEDIA UPLOAD -->
+    <script>
+        function previewMedia(input, previewId, type) {
+            const previewBox = document.getElementById(previewId);
+            const file = input.files[0];
+
+            if (file) {
+                previewBox.style.display = 'block';
+                if (type === 'video') {
+                    const videoPlayer = previewBox.querySelector('video');
+                    videoPlayer.src = URL.createObjectURL(file);
+                } else if (type === 'doc') {
+                    const docName = document.getElementById('doc-name');
+                    docName.innerHTML = `<i class="fa-solid fa-check-circle"></i> Berhasil dimuat: <strong>${file.name}</strong>`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
